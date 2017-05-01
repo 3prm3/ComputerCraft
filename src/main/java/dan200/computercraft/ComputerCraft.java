@@ -264,6 +264,10 @@ public class ComputerCraft
         Config.turtleFuelLimit = Config.config.get( Configuration.CATEGORY_GENERAL, "turtleFuelLimit", turtleFuelLimit );
         Config.turtleFuelLimit.setComment( "The fuel limit for Turtles" );
 
+        prop = config.get(Configuration.CATEGORY_GENERAL, "maximumFilesOpen", maximumFilesOpen);
+        prop.setComment( "How many files a computer can have open at the same time" );
+        maximumFilesOpen = prop.getInt();
+
         Config.advancedTurtleFuelLimit = Config.config.get( Configuration.CATEGORY_GENERAL, "advancedTurtleFuelLimit", advancedTurtleFuelLimit );
         Config.advancedTurtleFuelLimit.setComment( "The fuel limit for Advanced Turtles" );
 
