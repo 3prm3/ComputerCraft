@@ -261,6 +261,9 @@ public class ComputerCraft
         Config.turtlesNeedFuel = Config.config.get( Configuration.CATEGORY_GENERAL, "turtlesNeedFuel", turtlesNeedFuel );
         Config.turtlesNeedFuel.setComment( "Set whether Turtles require fuel to move" );
 
+        Config.maximumFilesOpen = Config.config.get(Configuration.CATEGORY_GENERAL, "maximumFilesOpen", maximumFilesOpen);
+        Config.maximumFilesOpen.setComment( "Set how many files a computer can have open at the same time. Set to 0 for unlimited." );
+
         Config.turtleFuelLimit = Config.config.get( Configuration.CATEGORY_GENERAL, "turtleFuelLimit", turtleFuelLimit );
         Config.turtleFuelLimit.setComment( "The fuel limit for Turtles" );
 
