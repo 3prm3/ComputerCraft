@@ -59,6 +59,10 @@ end
 
 function removeObject(ID)
     objects[ID] = {}
+    clearScreen()
+    for ID,data in pairs(objects) do
+        draw(ID)
+    end
 end
 
 function clearAllObjects()
@@ -110,7 +114,7 @@ end
 function flashButton(ID)
     local objtype = objects[ID]["type"]
     if not objtype == "button" then return end
-    API.toggleButton(ID)
+    toggleButton(ID)
     os.sleep(0.15)
     toggleButton(ID)
 end
