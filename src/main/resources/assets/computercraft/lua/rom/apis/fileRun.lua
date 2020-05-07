@@ -1,4 +1,4 @@
-local function executeFile( _dir , _stype )
+local function run( _dir , _stype )
 local _type = _stype
 local dir = _dir
 local function bootSequence()
