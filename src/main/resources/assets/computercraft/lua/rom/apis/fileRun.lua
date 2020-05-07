@@ -37,16 +37,23 @@ gui..newButton( "cancel-boot" , "Cancel", w - 8 , 1 , 8 , 1, nil, nil, colors.pi
 gui.newLabel( "boot-dir-title" , "Execute Directory" , 2 , 3 , w - 2 , 1 , colors.blue )
 gui.newLabel( "boot-dir" , dir , 2 , 5 , w - 2 , 2 , colors.gray )
 gui.newBar( "load-bar" , 1 , h - 2 , w , 1 , colors.lightBlue , colors.blue , 0)
-gui.newLabel( "load-label , "Invalid label" , 1 , h - 3 , w , 1 , colors.blue )
+gui.newLabel( "load-label" , "Please wait..." , 1 , h - 3 , w , 1 , colors.blue )
 os.sleep(0.01)
 gui.setLabelText( "load-label" , "Press F1 to cancel. Press enter to start." )
 gui.updateAll()
+if not fs.exists( _dir ) == true then
+  os.sleep(0.01)
+  gui.setLabelText( "load-label" , "File not found or file is corrupt." )
+  os.pullEvent( "key" )
+  gui.clearAllObjects()
+  os.pullEvrnt( "terminate" )
+end
 timer = 5
 repeat
   bootSequence()
   os.sleep( 0.1)
   timer = timer - 0.1
-until timer < 0.1
+until timer < 0.
 repeat
   bootSequence()
   gui.setBarValue( "load-bar" , prog )
