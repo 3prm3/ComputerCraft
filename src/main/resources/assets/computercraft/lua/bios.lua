@@ -935,7 +935,7 @@ settings.set( "edit.autocomplete", true )
 settings.set( "edit.default_extension", "lua" )
 settings.set( "paint.default_extension", "nfp" )
 settings.set( "lua.autocomplete", true )
-settings.set( "list.show_hidden", false )
+settings.set( "list.show_hidden", true )
 if term.isColour() then
     settings.set( "bios.use_multishell", true )
 end
@@ -995,6 +995,9 @@ if not ok then
         term.setCursorBlink( false )
         print( "Press any key to continue" )
         os.pullEvent( "key" )
+        print( "Your computer is now restarting..." )
+        os.sleep(0.5)
+        os.reboot()
     end )
 end
 
