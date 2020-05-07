@@ -43,6 +43,7 @@ if w > 25 then
 end
 if not w > 25 then 
   gui.newLabel( "load-label" , "Please wait..." , 1 , h - 4 , w , 3 , colors.blue )
+end
 os.sleep(0.01)
 gui.setLabelText( "load-label" , "Press F1 to cancel. Press enter to start." )
 gui.updateAll()
