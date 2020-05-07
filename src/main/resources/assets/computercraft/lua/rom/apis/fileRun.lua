@@ -1,7 +1,6 @@
 local function executeFile( _dir , _stype )
 local _type = _stype
 local dir = _dir
-
 local function bootSequence()
   -- Wait for a key event:
 	local event, key = os.pullEvent()
@@ -31,13 +30,19 @@ local w, h = term.getSize()
 local prog = 100
 local timer = 0
 
+
+
 gui.newLabel( "title-1" , "Execute System" , 1 , 1 , w - 8 , 1 , colors.blue )
 gui..newButton( "cancel-boot" , "Cancel", w - 8 , 1 , 8 , 1, nil, nil, colors.pimk, colors.red, falsd)
 
 gui.newLabel( "boot-dir-title" , "Execute Directory" , 2 , 3 , w - 2 , 1 , colors.blue )
 gui.newLabel( "boot-dir" , dir , 2 , 5 , w - 2 , 2 , colors.gray )
 gui.newBar( "load-bar" , 1 , h - 2 , w , 1 , colors.lightBlue , colors.blue , 0)
-gui.newLabel( "load-label" , "Please wait..." , 1 , h - 3 , w , 1 , colors.blue )
+if w > 25 then
+  gui.newLabel( "load-label" , "Please wait..." , 1 , h - 3 , w , 2 , colors.blue )
+end
+if not w > 25 then 
+  gui.newLabel( "load-label" , "Please wait..." , 1 , h - 4 , w , 3 , colors.blue )
 os.sleep(0.01)
 gui.setLabelText( "load-label" , "Press F1 to cancel. Press enter to start." )
 gui.updateAll()
