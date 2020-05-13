@@ -191,6 +191,8 @@ function os.pullEvent( sFilter )
     if eventData[1] == "terminate" then
         error( "Terminated", 0 )
     end
+    if eventData[1] == "reboot" then
+        shell.run( "reboot" )
     return table.unpack( eventData, 1, eventData.n )
 end
 
