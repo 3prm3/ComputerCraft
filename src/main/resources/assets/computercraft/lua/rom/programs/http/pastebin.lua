@@ -1,7 +1,7 @@
 
 local function printUsage()
     print( "Usages:" )
-    print( "pastebin put <filename>" )
+    print( "pastebin put <filename> - NOT COMPATIBLE" )
     print( "pastebin get <code> <filename>" )
     print( "pastebin run <code> <arguments>" )
 end
@@ -39,6 +39,8 @@ local sCommand = tArgs[1]
 if sCommand == "put" then
     -- Upload a file to pastebin.com
     -- Determine file to upload
+    print("Hold up! We don't allow as there is API added and built into this. We declined it and cannot be used. Sorry")
+    break
     local sFile = tArgs[2]
     local sPath = shell.resolve( sFile )
     if not fs.exists( sPath ) or fs.isDir( sPath ) then
@@ -88,24 +90,39 @@ elseif sCommand == "get" then
     -- Determine file to download
     local sCode = tArgs[2]
     local sFile = tArgs[3]
-    local sPath = shell.resolve( sFile )
+    local sPath = shell.resolve( sFileName )
+    local sFileName = tAgrs[3]
     if fs.exists( sPath ) then
-        print( "File already exists" )
-        return
+        print( "File Exists! Creating a copy..." )
     end
     
-    -- GET the contents from pastebin
+    -- GET the contents from pasteb
     local res = get(sCode)
     if res then        
-        local file = fs.open( sPath, "w" )
-        file.write( res )
-        file.close()
-        
-        print( "Downloaded as "..sFile )
+        if not fs.exists( sFile ) then
+            local file = fs.open( sPath, "w" )
+            file.write( res )
+            file.close()
+            print( "Downloaded as "..sFileName )
+        else
+            local checkNum = 1
+            repeat
+                sFileName = sFile .. "-" checkNum
+                sPath = shell.resolve( sFileName )
+                local checkNum = checkNum + 1
+            until fs.exists( sFileName ) == false
+            local file = fs.open( sPath , "w" )
+            file.write( res )
+            file.close()
     end 
 elseif sCommand == "run" then
     local sCode = tArgs[2]
- 
+    if false then
+        prihtError( "Not compatible as it will not work on normal CC" )
+
+
+        return
+    end
     local res = get(sCode)
     if res then
         local func, err = load(res, sCode, "t", _ENV)
