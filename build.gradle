@@ -62,6 +62,10 @@ jar {
     }
 }
 
+sourceSets {
+    main { output.resourcesDir = output.classesDir }
+}
+
 import org.ajoberstar.grgit.Grgit
 
 processResources {
