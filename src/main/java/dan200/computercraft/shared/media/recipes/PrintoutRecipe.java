@@ -31,11 +31,11 @@ public class PrintoutRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements
         return x >= 3 && y >= 3;
     }
 
-    @Override
-    public boolean isHidden()
-    {
-        return true;
-    }
+//    @Override
+//    public boolean isHidden()
+//    {
+//        return true;
+//    }
     
     @Nonnull
     @Override

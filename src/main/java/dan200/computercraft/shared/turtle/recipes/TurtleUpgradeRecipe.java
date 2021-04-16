@@ -36,11 +36,11 @@ public class TurtleUpgradeRecipe extends IForgeRegistryEntry.Impl<IRecipe> imple
         return x >= 3 && y >= 1;
     }
 
-    @Override
-    public boolean isHidden()
-    {
-        return true;
-    }
+//    @Override
+//    public boolean isHidden()
+//    {
+//        return true;
+//    }
     
     @Nonnull
     @Override

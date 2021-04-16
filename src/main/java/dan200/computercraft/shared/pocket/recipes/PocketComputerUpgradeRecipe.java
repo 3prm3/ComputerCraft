@@ -33,11 +33,11 @@ public class PocketComputerUpgradeRecipe extends IForgeRegistryEntry.Impl<IRecip
         return x >= 2 && y >= 2;
     }
 
-    @Override
-    public boolean isHidden()
-    {
-        return true;
-    }
+//    @Override
+//    public boolean isHidden()
+//    {
+//        return true;
+//    }
 
     @Nonnull
     @Override
